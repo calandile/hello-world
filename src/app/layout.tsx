@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./styles/main.scss";
+import "./styles/scss/main.scss";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,6 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      {/* <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2/dist/tailwind.min.css" rel="stylesheet"></link> */}
       <body>{children}</body>
     </html>
   );
