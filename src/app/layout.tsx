@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./styles/main.scss";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -12,8 +14,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html>
+      <body>
+        <Navbar />
+          {children}
+        <Footer />
+      </body>
     </html>
   );
 }
