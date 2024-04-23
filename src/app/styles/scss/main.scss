@@ -1,0 +1,58 @@
+@import "~tailwindcss/base";
+@import "~tailwindcss/components";
+@import "variables";
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Vidaloka&display=swap");
+
+html {
+  font-size: 1.5em;
+}
+
+body {
+  background-color: $light;
+}
+
+.hello {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // height: 100vh;
+
+  .container {
+    display: contents;
+  }
+
+  h1 {
+    color: $dark;
+    font-family: "Vidaloka", serif;
+    font-size: 5vw;
+    letter-spacing: -0.02em;
+    line-height: 0.9;
+
+    span {
+      color: $neutral;
+    }
+  }
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+
+  ul {
+    display: inline-flex;
+    gap: 10px;
+  }
+}
+
+footer {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    ul {
+      display: contents;
+    }
+  }
+}
