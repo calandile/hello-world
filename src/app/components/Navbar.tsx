@@ -3,20 +3,41 @@
 import { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa";
+import { IconType } from "react-icons";
+import { IoPersonSharp } from "react-icons/io5";
+import { FaPhoneAlt } from "react-icons/fa";
+import { IoDocumentText } from "react-icons/io5";
+import { MdPrivacyTip } from "react-icons/md";
+
+interface INavbarLink {
+  href: string;
+  label: string;
+  icon: IconType;
+}
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navLinks = [
-    { href: "#github", label: "GitHub" },
-    { href: "#linkedin", label: "LinkedIn" },
+  const navLinks: INavbarLink[] = [
+    {
+      href: "#github",
+      label: "GitHub",
+      icon: FaGithub,
+    },
+    {
+      href: "#linkedin",
+      label: "LinkedIn",
+      icon: FaLinkedinIn,
+    },
   ];
-  const contactLinks = [
-    { href: "#about", label: "About Me" },
-    { href: "#contact", label: "Contact" },
+  const contactLinks: INavbarLink[] = [
+    { href: "#about", label: "About Me", icon: IoPersonSharp },
+    { href: "#contact", label: "Contact", icon: FaPhoneAlt },
   ];
-  const footerLinks = [
-    { href: "#myCv", label: "My CV" },
-    { href: "#privacy", label: "Privacy" },
+  const footerLinks: INavbarLink[] = [
+    { href: "#myCv", label: "My CV", icon: IoDocumentText },
+    { href: "#privacy", label: "Privacy", icon: MdPrivacyTip },
   ];
   return (
     <>
@@ -60,17 +81,26 @@ const Navbar = () => {
         <ul className="lg:hidden text-neutral-200">
           {navLinks.map((item) => (
             <li key={item.label}>
-              <a href={item.href}>{item.label}</a>
+              <a href={item.href} className="inline-flex items-center gap-3">
+                {<item.icon />}
+                {item.label}
+              </a>
             </li>
           ))}
           {contactLinks.map((item) => (
             <li key={item.label}>
-              <a href={item.href}>{item.label}</a>
+              <a href={item.href} className="inline-flex items-center gap-3">
+                {<item.icon />}
+                {item.label}
+              </a>
             </li>
           ))}
           {footerLinks.map((item) => (
             <li key={item.label}>
-              <a href={item.href}>{item.label}</a>
+              <a href={item.href} className="inline-flex items-center gap-3">
+                {<item.icon />}
+                {item.label}
+              </a>
             </li>
           ))}
         </ul>
