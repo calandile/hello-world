@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
@@ -37,7 +38,7 @@ const Navbar = () => {
               ))}
             </ul>
             <div
-              className="hidden max-lg:block cursor-pointer"
+              className="hidden max-lg:block cursor-pointer transition duration-300 ease-in-out"
               onClick={() => {
                 setIsMenuOpen(!isMenuOpen);
               }}
@@ -47,45 +48,33 @@ const Navbar = () => {
           </div>
         </nav>
       </header>
-      {isMenuOpen && (
-        <nav className="fixed top-0 right-0 left-0 bottom-0 lg:bottom-auto bg-slate-100">
-          <div
-            className="hidden max-lg:block fixed right-0 cursor-pointer p-4"
-            onClick={() => {
-              setIsMenuOpen(!isMenuOpen);
-            }}
-          >
-            <AiOutlineClose className="text-3xl" />
-          </div>
-          <ul className=" lg:hidden flex flex-col items-center justify-center h-full">
-            {navLinks.map((item) => (
-              <li key={item.label}>
-                <a
-                  href={item.href}
-                  className="font-montserrat leading-normal text-lg text-slate-gray"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-            {contactLinks.map((item) => (
-              <li key={item.label}>
-                <a href={item.href}>{item.label}</a>
-              </li>
-            ))}
-            {footerLinks.map((item) => (
-              <li key={item.label}>
-                <a
-                  href={item.href}
-                  className="font-montserrat leading-normal text-lg text-slate-gray"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      )}
+      <nav className={`menu-overlay ${isMenuOpen ? "active" : ""}`}>
+        <div
+          className="hidden max-lg:block absolute right-0 cursor-pointer p-4 transition duration-300 ease-in-out"
+          onClick={() => {
+            setIsMenuOpen(!isMenuOpen);
+          }}
+        >
+          <AiOutlineClose className="text-3xl text-neutral-300" />
+        </div>
+        <ul className="lg:hidden text-neutral-200">
+          {navLinks.map((item) => (
+            <li key={item.label}>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))}
+          {contactLinks.map((item) => (
+            <li key={item.label}>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))}
+          {footerLinks.map((item) => (
+            <li key={item.label}>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </>
   );
 };

@@ -2,7 +2,7 @@ const Footer = () => {
   return (
     <footer>
       <div className="container">
-        <ul className="footer-list">
+        <ul className="hidden lg:flex lg:justify-between">
           <li>
             <a href="https://github.com/calandile">My CV</a>
           </li>
