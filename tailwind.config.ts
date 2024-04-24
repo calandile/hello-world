@@ -13,6 +13,7 @@ const config: Config = {
     fontFamily: {
       sans: ["Raleway", "sans-serif"],
       serif: ["Gloock", "serif"],
+      cursive: ["League Script", "cursive"],
     },
   },
   plugins: [],
